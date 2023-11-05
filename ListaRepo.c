@@ -145,12 +145,127 @@ void q4() {
         }
     }
 
+}
 
+void doWhile(int ini, int fin, int pas) {
+
+    int start = ini;
+    int end = fin;
+    int increment = pas;
+
+    if (start < end) {
+        printf("%d ", start);
+        start += increment;
+        doWhile(start, end, increment);
+    } else printf("%d\n", start);
 
 }
 
+void q6(){
 
 
+    int start, end, pares = 0;
+
+    printf("\nDigite o valor inicial do intervalo: ");
+    scanf("%d", &start);
+    printf("\nDigite o valor final do intervalo: ");
+    scanf("%d", &end);
+
+    
+    for(int x = start; x <= end; x++) {
+
+        if (x % 2 == 0) {
+            pares++;
+        }
+    }
+
+    printf("No intervalo de %d e %d, existem %d digitos pares.\n", start, end, pares);
+}
+
+void palindromo(char word[20]){
+
+    for (int x = word[0]; ; x++) {
+        if (word[x] == '\0') {
+            break;
+        }
+        for (int y = word[20]; ; y--) {
+            if (word[x] == word [y]) {
+                palindromo(word);
+            }
+        }
+    }
+
+}
+
+void q7() {
+    char setence[20];
+
+    printf("Digite uma palavra (ate 20 caracteres): ");
+    fgets(setence, sizeof(setence), stdin);
+
+    palindromo(setence);
+
+    
+}
+
+void q8() {
+    char password[500];
+    int length = 0, upperCase = 0, lowerCase = 0 ,numbers = 0, minimalLength = 0;
+
+    printf("Crie uma senha: ");
+    fgets(password, sizeof(password), stdin);
+
+    for (int i = 0; 1; i++) {
+        if (password[i] >= 'A' && password[i] <= 'Z') {
+            upperCase++;
+        } else if (password[i] >= 'a' && password[i] <= 'z') {
+            lowerCase++;
+        } else if (password[i] >= '0' && password[i] <= '9') {
+            numbers++;
+        }
+
+        if (password[i] == '\0'){
+            break;
+        }
+
+        length++;
+    }
+
+     if (length >= 8) {
+        minimalLength = 1;
+    }
+
+    printf("\t[%c] Tamanho mínimo de 8 caracteres.\n\t[%c] Contém letra maiúscula.\n\t[%c] Contém letra minúscula.\n\t[%c] Contém números.\n", (minimalLength ? 'O' : 'X'), (upperCase > 0 ? 'O' : 'X'), (lowerCase > 0 ? 'O' : 'X'), (numbers > 0 ? 'O' : 'X'));
+}
+
+void q9() {
+    int pastDay, pastMounth, pastYear, currentDay, currentMounth, currentYear;
+
+    printf("Informe a data de nascimento (dd/mm/yyyy): ");
+    scanf("%d", &pastDay); scanf("%d", &pastMounth); scanf("%d", &pastYear);
+    printf("Informe a data atual (dd/mm/yyyy): ");
+    scanf("%d", &currentDay); scanf("%d", &currentMounth); scanf("%d", &currentYear);
+   
+
+    
+
+    printf("%d/%d/%d\n", pastDay, pastMounth, pastYear);
+    printf("%d/%d/%d\n", currentDay, currentMounth, currentYear);
+}
+
+void q10() {
+
+    int rows;
+    char slash = '#';
+
+    printf("Informe o numero de linhas do trinagulo: ");
+    scanf("%d", &rows);
+
+    for (int i = 0; i <= rows; i++) {
+        for 
+    }
+   
+}
 
 int main() {
 
@@ -158,6 +273,12 @@ int main() {
     //q2();
     //q3();
     //q4();
+    //doWhile(0, 1000, 1);
+    //q6();
+    //q7(); //Essa aqui não deu
+    //q8();
+    //q9(); //Essa aqui não deu
+    //q10(); //Essa aqui não deu
 
     return 0;
 }
