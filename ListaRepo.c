@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <conio.h>
 
 void q1() {
     int ho;
@@ -104,16 +105,59 @@ void count_down (int i, int f) {
 
 void q4() {
     char op;
+    int start, end;
 
-    printf("Voce quer que eu conte de forma [c]rescente ou [d]ecrescente");
-    getch(op);
+    printf("Voce quer que eu conte de forma [c]rescente ou [d]ecrescente: ");
+    op = getch();
+
+    while (1) {
+        if (op == 'c' || op == 'C') {
+            printf("\nRealizando a contagem de forma CRESCENTE\n");
+
+            printf("\nEntre com o numero INICIAL: ");
+            scanf("%d", &start);
+            printf("Entre com o numero FINAL: ");
+            scanf("%d", &end);
+
+            if (end >= start) {
+                count_up(start, end);
+                break;
+            } else {
+                printf("ERRO: o numero final deve ser MAIOR que o inicial!\n");
+            }
+        } else if (op == 'd' || op == 'D') {
+            printf("\nRealizando a contagem de forma DECRESCENTE\n");
+
+            printf("\nEntre com o numero INICIAL: ");
+            scanf("%d", &start);
+            printf("Entre com o numero FINAL: ");
+            scanf("%d", &end);
+
+            if (end <= start) {
+                count_down(start, end);
+                break;
+            } else {
+                printf("ERRO: o numero final deve ser MENOR que o inicial!\n");
+            }
+        } else {
+            printf("\nOpcao Invalida. Digite 'c' ou 'd': ");
+            op = getch();
+        }
+    }
+
+
+
 }
+
+
+
 
 int main() {
 
     //q1();
     //q2();
     //q3();
+    //q4();
 
     return 0;
 }
